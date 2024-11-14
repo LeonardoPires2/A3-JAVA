@@ -1,16 +1,16 @@
 package br.com.fapa.entityUniversity;
 
-public class Discipline {
+public class Disciplina {
     private String name;
     private String classroom;
     private int id;
 
-    public Discipline(String name, String classroom) {
+    public Disciplina(String name, String classroom) {
         this.name = name;
         this.classroom = classroom;
     }
 
-    public Discipline() {
+    public Disciplina() {
     }
 
     public String getName() {

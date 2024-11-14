@@ -2,22 +2,28 @@ package br.com.fapa.entityUniversity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-public class Course extends Discipline {
+public class Curso extends Disciplina {
     private String name;
-    private List<Discipline> disciplinesList;
-    private List<Student> studentList;
+    private List<Disciplina> disciplinesList;
+    private List<Aluno> alunoList;
     private int duration;
     private String code;
 
-    public Course(String name, String code) {
-        this.studentList = new ArrayList<>();
+    public Curso(String name, String code) {
+        this.alunoList = new ArrayList<>();
         this.disciplinesList = new ArrayList<>();
         this.name = name;
         this.code = code;
 //        this.disciplinesList = disciplinesList;
-//        this.studentList = studentList;
+//        this.alunoList = alunoList;
 //        this.duration = duration;
+    }
+
+    public Curso() {
+
     }
 
     @Override
@@ -34,20 +40,20 @@ public class Course extends Discipline {
     }
 
 
-    public void includeStudent(Student student){
-        studentList.add(student);
-        System.out.println(studentList);
-        System.out.println(studentList);
+    public void includeStudent(Aluno aluno){
+        alunoList.add(aluno);
+        System.out.println(alunoList);
+        System.out.println(alunoList);
     }
 
-    public void includeDisciplines(Discipline discipline){
-        disciplinesList.add(discipline);
+    public void includeDisciplines(Disciplina disciplina){
+        disciplinesList.add(disciplina);
     }
 
-//    private void listDisciplines(Course )
+//    private void listDisciplines(Curso )
 
     private void listStudentsByCourse(int id){
-        studentList.forEach(s -> s.getCourseId());
+        alunoList.forEach(s -> s.getCourseId());
     }
 
     public void getDisciplines() {
@@ -56,10 +62,10 @@ public class Course extends Discipline {
 
     @Override
     public String toString() {
-        return "\nCourse{" +
+        return "\nCurso{" +
                 "name='" + name + '\'' +
                 ", disciplinesList=" + disciplinesList +
-                ", studentList=" + studentList +
+                ", alunoList=" + alunoList +
                 ", duration=" + duration +
                 '}';
     }

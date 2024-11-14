@@ -1,26 +1,16 @@
 package br.com.fapa.entityUniversity;
 
-public class Student extends Person {
-    //    private Registration idRegistration;
+public class Aluno extends Pessoa {
+    private Matricula idMatricula;
     private String courseId;
-    private int dateOfBirth;
     private String phone;
     private String email;
 
-    public Student(String name, String cpf, String age, String courseId, int dateOfBirth, String phone, String email) {
-        super(name, cpf, age);
+    public Aluno(String name, String cpf, int idade, String courseId, String phone, String email) {
+        super(name, cpf, idade);
         this.courseId = courseId;
-        this.dateOfBirth = dateOfBirth;
         this.phone = phone;
         this.email = email;
-    }
-
-    public int getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(int dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     public String getPhone() {
@@ -49,10 +39,9 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + this.name + '\'' +
+        return "Aluno{" +
+                "name='" + this.nome + '\'' +
                 ", courseId='" + courseId + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -60,10 +49,9 @@ public class Student extends Person {
 
     @Override
     public void displayInfo() {
-        System.out.println("Student{" +
-                "name='" + this.name + '\'' +
+        System.out.println("Aluno{" +
+                "name='" + this.nome + '\'' +
                 ", courseId='" + courseId + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}');
