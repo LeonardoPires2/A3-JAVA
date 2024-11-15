@@ -14,6 +14,13 @@ public class Professor extends Pessoa {
     }
 
     @Override
+    public String toString() {
+        return "Professor{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
+
+    @Override
     public void displayInfo() {
 
     }

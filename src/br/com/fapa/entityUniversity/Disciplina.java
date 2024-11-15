@@ -1,39 +1,39 @@
 package br.com.fapa.entityUniversity;
 
-public class Disciplina {
-    private String name;
-    private String classroom;
+import java.util.Random;
+
+public class Disciplina implements Matricula {
+    private String nome;
     private int id;
 
-    public Disciplina(String name, String classroom) {
-        this.name = name;
-        this.classroom = classroom;
-    }
+    Random random = new Random();
 
-    public Disciplina() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
+    public Disciplina(String nome) {
+        this.nome = nome;
+        setId(generateRegistrationNumber());
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public Disciplina() {
+    }
+
+    public String getName() {
+        return nome;
+    }
+
     @Override
     public String toString() {
-        return
-                "\n\tDisplina:'" + name + '\'' +
-                "\n\tTurma:'" + classroom + '\'' +
-                "\n";
+        return "Displina: " + nome + '\n' +
+               "Id: " + id + '\n';
+    }
+
+    @Override
+    public int generateRegistrationNumber() {
+        int min = 200;
+        int max = 300;
+        return random.nextInt(max - min + 1) + min;
     }
 }

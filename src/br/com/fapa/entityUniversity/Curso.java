@@ -1,32 +1,26 @@
 package br.com.fapa.entityUniversity;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.Random;
+import java.util.Scanner;
 
-public class Curso extends Disciplina {
+public abstract class Curso implements Matricula {
     private String name;
-    private List<Disciplina> disciplinesList;
-    private List<Aluno> alunoList;
-    private int duration;
     private String code;
+    Scanner ler = new Scanner(System.in);
+    Random random = new Random();
 
     public Curso(String name, String code) {
-        this.alunoList = new ArrayList<>();
-        this.disciplinesList = new ArrayList<>();
         this.name = name;
         this.code = code;
-//        this.disciplinesList = disciplinesList;
-//        this.alunoList = alunoList;
-//        this.duration = duration;
-    }
-
-    public Curso() {
-
     }
 
     @Override
+    public int generateRegistrationNumber() {
+        int min = 200;
+        int max = 300;
+        return random.nextInt(max - min + 1) + min;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,38 +29,16 @@ public class Curso extends Disciplina {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public int validacaoDeExclusao(int selecao, int saida){
+        while(selecao != saida){
+            System.out.printf("Digite %d para sair: ", saida );
+            selecao = ler.nextInt();
+        }
+        return selecao;
     }
 
-
-    public void includeStudent(Aluno aluno){
-        alunoList.add(aluno);
-        System.out.println(alunoList);
-        System.out.println(alunoList);
-    }
-
-    public void includeDisciplines(Disciplina disciplina){
-        disciplinesList.add(disciplina);
-    }
-
-//    private void listDisciplines(Curso )
-
-    private void listStudentsByCourse(int id){
-        alunoList.forEach(s -> s.getCourseId());
-    }
-
-    public void getDisciplines() {
-        System.out.println(disciplinesList);
-    }
-
-    @Override
-    public String toString() {
-        return "\nCurso{" +
-                "name='" + name + '\'' +
-                ", disciplinesList=" + disciplinesList +
-                ", alunoList=" + alunoList +
-                ", duration=" + duration +
-                '}';
+    public void excluirMatricula(List<Aluno> listaAlunoGraduacao) {
+        listaAlunoGraduacao.remove(listaAlunoGraduacao.size() - 1);
+        System.out.println("Sua matricula foi excluida!");
     }
 }
