@@ -54,7 +54,7 @@ public class PosGraduation extends Curso {
     }
 
     @Override
-    public void excluirMatricula(List<Aluno> listaAlunoGraduacao) {
-        super.excluirMatricula(listaAlunoGraduacao);
+    public void excluirMatricula(List<Aluno> lisAlunoPosGraduacao) {
+        super.excluirMatricula(lisAlunoPosGraduacao);
     }
 }
