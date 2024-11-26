@@ -20,7 +20,6 @@ public class PosGraduation extends Curso {
         if (cursoEncontrado.isPresent()) {
             PosGraduation curso = cursoEncontrado.get();
             alunosDoCursoGraduacao.add(aluno);
-            System.out.println(alunosPorPosGraduacao.get(curso));
             alunosPorPosGraduacao.put(curso, alunosDoCursoGraduacao);
             System.out.println("Aluno(a) matriculado com sucesso no curso " + curso.getName());
         } else {
@@ -55,6 +54,18 @@ public class PosGraduation extends Curso {
 
     @Override
     public void excluirMatricula(List<Aluno> lisAlunoPosGraduacao) {
-        super.excluirMatricula(lisAlunoPosGraduacao);
+        System.out.println("Tem certeza que deseja excluir a matrícula? (sim/não)");
+        String resposta = ler.nextLine().toLowerCase();
+        while (true) {
+            if (resposta.equals("sim")) {
+                super.excluirMatricula(lisAlunoPosGraduacao);
+                break;
+            } else if (resposta.equals("não")) {
+                break;
+            } else {
+                System.out.println("Resposta inválida. Digite 'sim' ou 'não'.");
+                resposta = ler.nextLine().toLowerCase();
+            }
+        }
     }
 }

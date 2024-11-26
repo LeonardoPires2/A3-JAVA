@@ -18,9 +18,7 @@ public class Graduacao extends Curso {
         if (cursoEncontrado.isPresent()) {
             Graduacao curso = cursoEncontrado.get();
             alunosDoCursoGraduacao.add(aluno);
-            System.out.println(alunosPorGraduacao.get(curso));
             alunosPorGraduacao.put(curso, alunosDoCursoGraduacao);
-            System.out.println(Arrays.toString(new Map[]{alunosPorGraduacao}));
             System.out.println("Aluno(a) matriculado com sucesso no curso " + curso.getName());
         } else {
             System.out.println("Curso com código " + codigoCurso + " não encontrado.");
@@ -44,7 +42,19 @@ public class Graduacao extends Curso {
 
     @Override
     public void excluirMatricula(List<Aluno> listaAlunoGraduacao) {
-        super.excluirMatricula(listaAlunoGraduacao);
+        System.out.println("Tem certeza que deseja excluir a matrícula? (sim/não)");
+        String resposta = ler.nextLine().toLowerCase();
+        while (true) {
+            if (resposta.equals("sim")) {
+                super.excluirMatricula(listaAlunoGraduacao);
+                break;
+            } else if (resposta.equals("não")) {
+                break;
+            } else {
+                System.out.println("Resposta inválida. Digite 'sim' ou 'não'.");
+                resposta = ler.nextLine().toLowerCase();
+            }
+        }
     }
 
     @Override

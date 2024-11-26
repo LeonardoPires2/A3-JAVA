@@ -17,9 +17,6 @@ public class Disciplina implements Matricula {
         this.id = id;
     }
 
-    public Disciplina() {
-    }
-
     public String getName() {
         return nome;
     }

@@ -78,11 +78,13 @@ public class Main {
         while (true) {
             System.out.println("Digite qualquer tecla para iniciar (ou 'sair' para encerrar):");
             String inicio = ler.nextLine();
-            System.out.println("Olá bem vindo ao Portal de Matricula! Responda o formulário abaixo para completar fazer sua matricula)");
 
             if (inicio.equalsIgnoreCase("sair")) {
                 break;
             }
+
+            System.out.println("Olá bem vindo ao Portal de Matricula! Responda o formulário abaixo para completar fazer sua matricula)");
+
 
             System.out.println("Digite seu nome: ");
             String nome = ler.next();
@@ -141,11 +143,11 @@ public class Main {
                             .filter(course -> course.getCode().equals(codigoCurso))
                             .findFirst();
                     PosGraduation cursoPos = cursoEncontradoPos.get();
+                    cursoPos.matricularAluno(codigoCurso, alunosDoCursoPosGraduacao, cursoEncontradoPos, aluno, alunosPorPosGraduacao);
                     Turma turmaPos = new Turma(alunosDoCursoPosGraduacao, listaDisciplinasDePosGraduacao.get(1), professor3);
                     Turma turmaPos1 = new Turma(alunosDoCursoPosGraduacao, listaDisciplinasDePosGraduacao.get(0), professor4);
                     listaDeTurmasPos.add(turmaPos);
                     listaDeTurmasPos.add(turmaPos1);
-                    cursoPos.matricularAluno(codigoCurso, alunosDoCursoPosGraduacao, cursoEncontradoPos, aluno, alunosPorPosGraduacao);
                     break;
                 default:
                     System.out.println("Selecione uma opção válida");
@@ -155,7 +157,7 @@ public class Main {
             int variavelDeSaida = 9;
 
             while (selecao != variavelDeSaida) {
-                System.out.printf("Seja muito bem-vindo %s em nossa universidade! Esperamos que tenha uma ótima experiência nos estudos", aluno.getNome());
+                System.out.printf("Seja muito bem-vindo %s em nossa universidade! Esperamos que tenha uma ótima experiência nos estudos \n", aluno.getNome());
                 System.out.println("""
                         Selecione as opções abaixo para saber informações sobre seu período acadêmico
                         1. Turmas
@@ -235,6 +237,7 @@ public class Main {
                     case 7:
                         aluno.editarMatricula();
                         selecao = 0;
+                        System.out.println("Cadastro editado com sucesso \n");
                         break;
                     case 8:
                         if (graduacao) {
@@ -261,11 +264,6 @@ public class Main {
                 }
 
             }
-
-            //listar profs, turmas, disciplinas de turma, status
-            // Limpar o buffer do scanner para evitar problemas com a próxima leitura
-            //q  ler.nextLine();
         }
-
     }
 }

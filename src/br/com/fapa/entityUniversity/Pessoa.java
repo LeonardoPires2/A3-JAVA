@@ -1,9 +1,9 @@
 package br.com.fapa.entityUniversity;
 
 public abstract class Pessoa {
-    protected String nome;
-    protected String cpf;
-    protected int idade;
+    private String nome;
+    private String cpf;
+    private int idade;
 
     public Pessoa(String nome, String cpf, int idade) {
         this.nome = nome;
@@ -13,6 +13,10 @@ public abstract class Pessoa {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setNome(String nome) {

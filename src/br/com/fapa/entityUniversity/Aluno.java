@@ -29,7 +29,7 @@ public class Aluno extends Pessoa implements Matricula {
 
     @Override
     public String toString() {
-        return "Nome: " + this.nome + "\n" +
+        return "Nome: " + this.getNome() + "\n" +
                 "Curso: " + cursoId + "\n" +
                 "Telefone: " + telefone + "\n" +
                 "Email=" + email + "\n";
@@ -38,10 +38,11 @@ public class Aluno extends Pessoa implements Matricula {
     @Override
     public void displayInfo() {
         System.out.println(
-                "Nome: " + this.nome + "\n" +
+                "Nome: " + this.getNome() + "\n" +
                         "RA: " + idMatricula + "\n" +
                         "Curso Id: " + cursoId + "\n" +
                         "Email: " + email + "\n" +
+                        "CPF: " + this.getCpf() + "\n" +
                         "Telefone: " + telefone + "\n"
         );
     }
