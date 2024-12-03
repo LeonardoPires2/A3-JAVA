@@ -160,15 +160,15 @@ public class Main {
                 System.out.printf("Seja muito bem-vindo %s em nossa universidade! Esperamos que tenha uma ótima experiência nos estudos \n", aluno.getNome());
                 System.out.println("""
                         Selecione as opções abaixo para saber informações sobre seu período acadêmico
-                        1. Turmas
-                        2. Grade Curricular
-                        3. Professor
-                        4. Disciplinas deste semestre
-                        5. Listar Colegas de Classe        
-                        6. Suas Informações        
-                        7. Editar Matricula        
-                        8. Excluir Matricula        
-                        9. Sair        
+                        1. Turmas 🏛️ 
+                        2. Grade Curricular 📱
+                        3. Professor 🧑‍🏫
+                        4. Disciplinas deste semestre 📘
+                        5. Listar Colegas de Classe 📚       
+                        6. Suas Informações 💾           
+                        7. Editar Matricula 📖        
+                        8. Excluir Matricula ❌       
+                        9. Sair 🏃‍➡️        
                         """);
 
                 selecao = ler.nextInt();
